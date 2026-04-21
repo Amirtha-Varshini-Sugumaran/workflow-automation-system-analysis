@@ -1,6 +1,6 @@
 # KPI Dashboard Mockup
 
-This dashboard is based on the fictional sample dataset in `sample_dataset.csv`.
+This dashboard is based on the fictional sample dataset in `sample-vendor-onboarding-data.csv`.
 
 ## Summary
 
