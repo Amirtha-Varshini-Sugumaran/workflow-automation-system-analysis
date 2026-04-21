@@ -254,9 +254,3 @@ For a growing SME, that kind of process works until it suddenly does not. More v
 The biggest improvement would be giving the business one place to submit, review, approve, and track vendor onboarding requests.
 
 This project helped me think more clearly about how a Business Systems Analyst connects business frustration to system requirements. The solution does not need to be huge. It just needs to make ownership, status, and evidence easier to see.
-
-## 20. Resume Bullets
-
-- Analyzed a manual vendor onboarding process for a growing facilities services company using email, Excel, and shared folders.
-- Defined workflow requirements, use cases, business rules, and approval stages for a lightweight onboarding system.
-- Created process flows, tracker templates, screen mockups, and KPI examples to show how the improved workflow would work in practice.
