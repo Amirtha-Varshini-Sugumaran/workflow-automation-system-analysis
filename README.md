@@ -40,13 +40,13 @@ The main issue is not that the team does not care. It is that the process has no
 
 | File | Description |
 |---|---|
-| `Workflow_Automation_System_Analysis.md` | Main BSA project document with context, gaps, requirements, workflows, business rules, and recommendations |
-| `artifacts/as_is_process.md` | Current-state vendor onboarding process flow |
-| `artifacts/to_be_process.md` | Future-state workflow automation process flow |
-| `artifacts/vendor_onboarding_tracker.md` | Practical tracker template for vendor onboarding requests |
-| `artifacts/screen_mockups.md` | Low-fidelity screen mockups for the proposed workflow system |
-| `artifacts/sample_dataset.csv` | Small fictional dataset for tracker/dashboard examples |
-| `artifacts/kpi_dashboard_mockup.md` | Simple KPI dashboard mockup using the sample data |
+| `vendor-onboarding-workflow-analysis.md` | Main BSA project document with context, gaps, requirements, workflows, business rules, and recommendations |
+| `artifacts/current-state-process.md` | Current-state vendor onboarding process flow |
+| `artifacts/future-state-process.md` | Future-state workflow automation process flow |
+| `artifacts/vendor-onboarding-tracker.md` | Practical tracker template for vendor onboarding requests |
+| `artifacts/workflow-screen-mockups.md` | Low-fidelity screen mockups for the proposed workflow system |
+| `artifacts/sample-vendor-onboarding-data.csv` | Small fictional dataset for tracker/dashboard examples |
+| `artifacts/kpi-dashboard-mockup.md` | Simple KPI dashboard mockup using the sample data |
 
 ## Key Deliverables
 
