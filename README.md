@@ -24,6 +24,10 @@ Vendor onboarding is a good example because it touches more than one team. Opera
 
 The idea was to model a believable workflow problem that feels close to how small companies actually work.
 
+## Data Source
+
+This is a case-study project using a fictional company and synthetic sample data. The vendor examples, approval stages, document checks, and KPI values are created for analysis and demonstration. Synthetic data makes the project safe to publish while still showing a realistic workflow problem.
+
 ## Business Problem
 
 The company is taking on more client sites and needs to onboard vendors faster. The process has not kept up.
