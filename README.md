@@ -37,7 +37,6 @@ The main issue is not that the team does not care. It is that the process has no
 | File | Description |
 |---|---|
 | `Workflow_Automation_System_Analysis.md` | Main BSA project document with context, gaps, requirements, workflows, business rules, and recommendations |
-| `interview_notes.md` | Interview preparation notes for explaining the project clearly |
 | `artifacts/as_is_process.md` | Current-state vendor onboarding process flow |
 | `artifacts/to_be_process.md` | Future-state workflow automation process flow |
 | `artifacts/vendor_onboarding_tracker.md` | Practical tracker template for vendor onboarding requests |
@@ -78,13 +77,3 @@ Business Systems Analysts often work in the space between messy business process
 This project shows that I can look at a manual process, understand where the breakdowns happen, define what the system needs to support, and keep the solution realistic for the size of the business.
 
 It is not a technical build. It is a clear analysis of what the business needs the system to do.
-
-## How to Talk About This Project in Interviews
-
-A simple way to explain it:
-
-"I created a Business Systems Analyst project around vendor onboarding for a growing facilities company. The process was being handled through email, Excel, and shared folders, so approvals were slow and nobody had a clear view of status or ownership.
-
-I mapped the current process, identified the main gaps, wrote functional and non-functional requirements, created use cases and business rules, and designed a lightweight future-state workflow with request forms, document checks, approval stages, audit history, and a small dashboard.
-
-The project shows how I approach a business process problem and translate it into practical system requirements."
