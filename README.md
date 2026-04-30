@@ -1,83 +1,143 @@
-# Vendor Onboarding Workflow Analysis
+# Vendor Onboarding Workflow Automation System
 
-## Short Summary
+## Project Overview
 
-This is a Business Systems Analyst portfolio project based on a growing facilities and maintenance services company in Dublin.
+This repository documents the analysis and proposed design for a vendor onboarding workflow automation system. It focuses on moving vendor setup away from email chains, attachments, and spreadsheets into a controlled workflow with request intake, document checks, approval stages, status visibility, and reporting.
 
-The company onboards small vendors for cleaning supplies, electrical work, emergency repairs, uniforms, and equipment servicing. The current process depends on email chains, attachments, and Excel trackers, which makes it slow and hard to control.
+Key capabilities:
 
-This project looks at how that process could be turned into a simple workflow system with request forms, document checks, approval stages, status visibility, and basic reporting.
+- Current-state and future-state workflow analysis.
+- Functional and non-functional requirements.
+- Vendor onboarding tracker template.
+- Screen mockups and KPI dashboard concept.
+- Sample vendor onboarding dataset.
+- Business rules for approvals, document completeness, and status tracking.
 
-## Why This Project Matters
+## Architecture
 
-Vendor onboarding is one of those processes that looks simple until the business starts growing.
+The repository defines a proposed workflow architecture rather than a deployed application.
 
-When operations, finance, and vendor admin teams are all working from different emails and trackers, small delays become normal. Documents get missed, approvals are unclear, and nobody has a clean view of where a request is stuck.
+```mermaid
+flowchart LR
+    requester["Vendor request"]
+    intake["Request intake form"]
+    docs["Document collection"]
+    review["Vendor admin review"]
+    approval["Operations and finance approval"]
+    setup["Vendor setup"]
+    dashboard["Workflow dashboard"]
+    audit["Audit trail"]
 
-This project shows how a Business Systems Analyst can connect business pain points to system behavior without overbuilding the solution.
+    requester --> intake
+    intake --> docs
+    docs --> review
+    review --> approval
+    approval --> setup
+    setup --> audit
+    audit --> dashboard
+```
 
-## Project Background
+End-to-end pipeline:
 
-I chose this project because a lot of SMEs still run operational approvals through email, spreadsheets, and shared folders.
+1. A vendor onboarding request is submitted.
+2. Required vendor details and documents are captured.
+3. Vendor admin checks completeness and flags missing information.
+4. Operations and finance approvals are recorded.
+5. Approved vendors move to setup.
+6. Status, timestamps, blockers, and completion metrics feed dashboard reporting.
 
-Vendor onboarding is a good example because it touches more than one team. Operations wants speed, finance wants clean supplier details, and vendor admin needs the right documents before setup.
+## Tech Stack
 
-The idea was to model a believable workflow problem that feels close to how small companies actually work.
+| Layer | Tooling | Purpose |
+|---|---|---|
+| Documentation | Markdown | Analysis, requirements, workflows, business rules |
+| Diagrams | Mermaid-compatible Markdown | Current and future process communication |
+| Data artifact | CSV | Sample vendor onboarding records |
+| Mockups | Markdown | Low-fidelity screens and dashboard concept |
+| Runtime | Not applicable | No executable application is included |
 
-## Data Source
+## Data Flow
 
-This is a case-study project using a fictional company and synthetic sample data. The vendor examples, approval stages, document checks, and KPI values are created for analysis and demonstration. Synthetic data makes the project safe to publish while still showing a realistic workflow problem.
+1. Ingestion: vendor requests enter through a proposed request form or controlled intake process.
+2. Processing: vendor details, documents, approvals, and blockers are checked against workflow rules.
+3. Storage: the proposed tracker stores vendor status, owners, required documents, approval outcomes, and dates.
+4. Transformation: tracker fields are summarized into onboarding cycle time, backlog, blocked requests, and document completeness metrics.
+5. Serving: workflow screens, tracker views, and dashboards support operations, finance, vendor admin, and managers.
 
-## Business Problem
+## Setup Instructions
 
-The company is taking on more client sites and needs to onboard vendors faster. The process has not kept up.
+### Prerequisites
 
-Right now, requests are raised by email, documents arrive in separate threads, approvals are chased manually, and finance sometimes receives incomplete or outdated supplier details.
+- Markdown viewer or editor
+- Mermaid-compatible viewer for process diagrams
+- Spreadsheet tool for sample CSV data
 
-The main issue is not that the team does not care. It is that the process has no shared control point.
+### Environment Variables
 
-## What Is Included in This Repository
+No environment variables are required. The repository has no runtime service.
 
-| File | Description |
+### Docker Setup
+
+Docker is not required for this documentation repository.
+
+### Local Run Steps
+
+Open `Workflow_Automation_System_Analysis.md` first, then review the artifacts under `artifacts/`.
+
+## Project Structure
+
+```text
+.
+|-- Workflow_Automation_System_Analysis.md # Main analysis and requirements document
+|-- artifacts/
+|   |-- as_is_process.md                   # Current manual onboarding process
+|   |-- to_be_process.md                   # Future automated workflow
+|   |-- vendor_onboarding_tracker.md       # Tracker template
+|   |-- screen_mockups.md                  # Low-fidelity workflow screens
+|   |-- sample_dataset.csv                 # Sample onboarding data
+|   |-- kpi_dashboard_mockup.md            # KPI dashboard concept
+```
+
+## Key Components
+
+### ETL Pipeline
+
+No ETL pipeline is implemented. A future system could ingest vendor requests from forms or spreadsheets, validate required fields, and transform them into workflow records.
+
+### Streaming Pipeline
+
+No streaming pipeline is included. A future implementation could emit events for missing documents, approval requests, blocked onboarding, and completed setup.
+
+### dbt Models
+
+No dbt models are included. Future analytics models could calculate average onboarding time, blocked-request aging, document completeness, approval bottlenecks, and vendor category trends.
+
+### API Layer
+
+No API is implemented. Future endpoints would likely cover vendor requests, document status, approval actions, workflow status, comments, and dashboard metrics.
+
+### Data Quality Checks
+
+Recommended checks include required vendor name, category, owner, required documents, approval status, finance setup status, blocker reason, completion date, and audit notes.
+
+## Testing
+
+There are no automated tests. Review the repository by checking traceability between process gaps, requirements, business rules, mockups, tracker fields, and dashboard metrics.
+
+## Troubleshooting
+
+| Issue | Fix |
 |---|---|
-| `vendor-onboarding-workflow-analysis.md` | Main BSA project document with context, gaps, requirements, workflows, business rules, and recommendations |
-| `artifacts/current-state-process.md` | Current-state vendor onboarding process flow |
-| `artifacts/future-state-process.md` | Future-state workflow automation process flow |
-| `artifacts/vendor-onboarding-tracker.md` | Practical tracker template for vendor onboarding requests |
-| `artifacts/workflow-screen-mockups.md` | Low-fidelity screen mockups for the proposed workflow system |
-| `artifacts/sample-vendor-onboarding-data.csv` | Small fictional dataset for tracker/dashboard examples |
-| `artifacts/kpi-dashboard-mockup.md` | Simple KPI dashboard mockup using the sample data |
+| Workflow has unclear ownership | Check that each status has an accountable team or role |
+| Dashboard metrics are hard to calculate | Confirm the tracker captures dates, status, owner, blockers, and completion fields |
+| Process feels overbuilt | Re-focus on request intake, document completeness, approvals, and setup visibility |
+| Diagram rendering fails | Use a Mermaid-compatible Markdown viewer |
 
-## Key Deliverables
+## Future Improvements
 
-- Current-state and future-state process flows
-- Stakeholder table
-- Functional and non-functional requirements
-- Use cases
-- Business rules
-- Logical system/data view
-- Sample system interaction view
-- Tracker template
-- Low-fidelity screen mockups
-- KPI dashboard mockup
-
-## Skills Demonstrated
-
-- Business process analysis
-- Workflow analysis
-- Requirements gathering
-- Systems thinking
-- Stakeholder analysis
-- Use case writing
-- Business rules definition
-- Light solution design
-- KPI and reporting thinking
-- Translating business problems into system behavior
-
-## Why This Is Relevant for Business Systems Analyst Roles
-
-Business Systems Analysts often work in the space between messy business processes and practical system changes.
-
-This project shows that I can look at a manual process, understand where the breakdowns happen, define what the system needs to support, and keep the solution realistic for the size of the business.
-
-It is not a technical build. It is a clear analysis of what the business needs the system to do.
+- Add OpenAPI-style requirements for workflow endpoints.
+- Add a status transition matrix.
+- Convert sample data into a normalized schema.
+- Add notification rules for approval reminders and blocked requests.
+- Add role-based access requirements for operations, finance, vendor admin, and managers.
+- Add a future integration view for finance or supplier master-data systems.
